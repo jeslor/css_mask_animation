@@ -20,33 +20,40 @@ const ImageSlider = () => {
         }
     ])
     const [current, setCurrent] = useState(0)
+    const [bgImage, setBgImage] = useState(current + 1)
     const length = images.length
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1)
+        setBgImage(current + 1)
     }
 
     const prevSlide = () => {
         setCurrent(current === 0 ? length - 1 : current - 1)
+        setBgImage(current - 1)
     }
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrent(current === length - 1 ? 0 : current + 1)
+            setBgImage(current + 1)
         }, 5000)
         return () => clearInterval(interval)
     }, [current])
 
 
+
   return (
-    <div className='h-[70vh] w-full'>
+    <div className='h-[70vh] w-full relative mt-6'>
         {images.map((image, index) => {
             return (
             <div
                 key={index}
                 className={`${
-                index === current ? 'opacity-100' : 'opacity-0'
-                } transition-opacity duration-1000 absolute top-0 left-0 h-full w-full`}
+                index === current ? 'animate-rightToLeft z-[2]' : 'left-0 '
+                }
+                 ${index === bgImage ? 'z-[1]' : 'z-0'}   
+                absolute top-0  h-full w-full`}
             >
                 <img
                 src={image.url}
