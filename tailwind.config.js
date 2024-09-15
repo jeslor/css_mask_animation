@@ -8,12 +8,22 @@ export default {
     extend: {
       keyframes:{
         rightToLeft: {
-          '0%': {left: '0'},
-          '100%': {left: '-100%'}
+          '0%':{
+          mask: 'linear-gradient(90deg, white, white 90%)',
+          left: '0',
+          },
+          '10%': {
+          mask: 'linear-gradient(90deg, white, transparent 100%)',
+          left: '-10%',
+          },
+          '100%': 
+          {left: '-100%',
+            mask: 'linear-gradient(90deg, white, transparent 100%)'
+          }
         },
       },
       animation: {
-        rightToLeft: 'rightToLeft 2s ease-in-out forwards',
+        rightToLeft: 'rightToLeft 20s ease-in-out forwards',
       },
     },
   },
