@@ -9,19 +9,31 @@ const ImageSlider = () => {
     const [images, setImages] = useState([
         {
             title: 'Slide 1',
-            url: slide1
+            url: slide1,
+            headerText: 'Wounder full nature out there',
+            paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, laboriosam. Dolorum alias vel tenetur ut perspiciatis id optio aspernatur officiis?',
+            buttonText: 'Read More'
         },
         {
             title: 'Slide 2',
-            url: slide2
+            url: slide2,
+            headerText: 'Looking for a new adventure',
+            paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, laboriosam. Dolorum alias vel tenetur ut perspiciatis id optio aspernatur officiis?',
+            buttonText: 'Read More'
         },
         {
             title: 'Slide 3',
-            url: slide3
+            url: slide3,
+            headerText: 'Lets go on a trip',
+            paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, laboriosam. Dolorum alias vel tenetur ut perspiciatis id optio aspernatur officiis?',
+            buttonText: 'Start Now'
         },
         {
             title: 'Slide 4',
-            url: slide2
+            url: slide2,
+            headerText: 'making life wonderful as it comes and goes',
+            paragraphText: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, laboriosam. Dolorum alias vel tenetur ut perspiciatis id optio aspernatur officiis?',
+            buttonText: 'visit page'
         },
     ])
     const [current, setCurrent] = useState(0)
@@ -68,7 +80,7 @@ const ImageSlider = () => {
 
   return (
     <div className='h-[70vh] w-full relative mt-6 '>
-        {images.map((image, index) => {
+        {images.map((item, index) => {
             return (
             <div
                 
@@ -79,18 +91,18 @@ const ImageSlider = () => {
                  ${index === bgImage ? 'z-[2]' : 'z-[1]'}
                 absolute top-0  h-full w-full`}
             >
-                <div className='absolute left-0 h-[30vh] w-full bg-opacity-50 bottom-0 bg-gradient-to-t from-black to-transparent'></div>
+                <div className='absolute left-0 h-[60%] w-full bg-opacity-50 bottom-0 bg-gradient-to-t from-black/90 to-transparent'></div>
                 <img
-                src={image.url}
-                alt={image.title}
+                src={item.url}
+                alt={item.title}
                 className='h-full w-full object-cover'
                 />
 
-                <div className={`absolute bottom-12 pb-8 left-0 w-full max-w-[500px] h-fit ${bgImage===index?'flex ':'hidden'} flex-col ml-[3rem]`}>
-                    <h3 data={index} className={`sliderTextHeader text-3xl font-bold text-white mb-4 drop-shadow-lg  ${bgImage===index?'animate-topCenter animate-delay-[2.8s]':' opacity-0 -translate-y-32'} `}>Wounder full nature out there</h3>
-                    <p className={`sliderTextParagraphy text-slate-300  ${bgImage===index?'animate-bottomCenter animate-delay-[3s]':' opacity-0'}`}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, laboriosam. Dolorum alias vel tenetur ut perspiciatis id optio aspernatur officiis?</p>
-                    <a href="" className={`sliderTextButton text-purple-600 px-6 py-3 bg-purple-300 mt-5 w-fit ${bgImage===index?'animate-leftCenter animate-delay-[03.5s]':' opacity-0'}`}>
-                        Read More
+                <div className={`absolute bottom-12 pb-8 left-0 w-full max-w-[600px] h-fit flex flex-col ml-[3rem]`}>
+                    <h3 data={index} className={`sliderTextHeader text-[2.5rem] leading-[2.4rem] font-bold text-white mb-4 drop-shadow-lg opacity-0 ${bgImage===index?'animate-topCenter animate-delay-[3s]':' opacity-0 -translate-y-[100px]'} `}>{item.headerText}</h3>
+                    <p className={`sliderTextParagraphy text-slate-300  ${bgImage===index?'animate-bottomCenter opacity-0 animate-delay-[3.8s]':' opacity-0'}`}>{item.paragraphText}</p>
+                    <a href="" className={`sliderTextButton text-purple-600 px-6 py-3 bg-purple-300 mt-5 w-fit opacity-0 ${bgImage===index?'animate-leftCenter animate-delay-[03.4s]':' opacity-0'}`}>
+                        {item.buttonText}
                     </a>
                 </div>
             </div>

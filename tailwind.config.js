@@ -459,7 +459,7 @@ export default {
         
       },
       animation: {
-        rightToLeft: 'rightToLeft 5s ease-in-out forwards',
+        rightToLeft: 'rightToLeft 3s ease-in-out forwards',
         topCenter: 'topCenter 0.35s ease-in-out forwards',
         bottomCenter: 'bottomCenter 0.35s ease-in-out  forwards',
         leftCenter: 'leftCenter 0.35s ease-in-out  forwards',
