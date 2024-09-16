@@ -57,24 +57,6 @@ const ImageSlider = () => {
         }, 15000)
         return () => clearInterval(interval)
     }, [current])
-    console.log(bgImage);
-    
-
-
-    useEffect(() => {
-        const tl = gsap.timeline({repeat: -1, repeatDelay: 1});
-        const sliderTextHeader = document.querySelector('.sliderTextHeader')
-        const sliderTextParagraphy = document.querySelector('.sliderTextParagraphy')
-        const sliderTextButton = document.querySelector('.sliderTextButton')
-       console.log(sliderTextHeader);
-       
-       
-
-    }, [current])
-
-
-
-    
 
 
 
@@ -99,9 +81,9 @@ const ImageSlider = () => {
                 />
 
                 <div className={`absolute bottom-12 pb-8 left-0 w-full max-w-[600px] h-fit flex flex-col ml-[3rem]`}>
-                    <h3 data={index} className={`sliderTextHeader text-[2.5rem] leading-[2.4rem] font-bold text-white mb-4 drop-shadow-lg opacity-0 ${bgImage===index?'animate-topCenter animate-delay-[3s]':' opacity-0 -translate-y-[100px]'} `}>{item.headerText}</h3>
-                    <p className={`sliderTextParagraphy text-slate-300  ${bgImage===index?'animate-bottomCenter opacity-0 animate-delay-[3.8s]':' opacity-0'}`}>{item.paragraphText}</p>
-                    <a href="" className={`sliderTextButton text-purple-600 px-6 py-3 bg-purple-300 mt-5 w-fit opacity-0 ${bgImage===index?'animate-leftCenter animate-delay-[03.4s]':' opacity-0'}`}>
+                    <h3 data={index} className={`sliderTextHeader text-[2.5rem] leading-[2.4rem] font-bold text-white mb-4 drop-shadow-lg opacity-0 ${bgImage===index?'animate-topCenter animate-delay-[2.1s]':' opacity-0 -translate-y-[100px]'} `}>{item.headerText}</h3>
+                    <p className={`sliderTextParagraphy text-slate-300  ${bgImage===index?'animate-bottomCenter opacity-0 animate-delay-[2.4s]':' opacity-0'}`}>{item.paragraphText}</p>
+                    <a href="" className={`sliderTextButton text-purple-600 px-6 py-3 bg-purple-300 mt-5 w-fit opacity-0 ${bgImage===index?'animate-leftCenter animate-delay-[2.9s]':' opacity-0'}`}>
                         {item.buttonText}
                     </a>
                 </div>
@@ -110,15 +92,15 @@ const ImageSlider = () => {
         })}
         <button
             onClick={prevSlide}
-            className='absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 z-10'
+            className='absolute top-1/2 left-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 z-10 rounded-full'
         >
-            Prev
+            <img src="/assets/icons/leftIcon.svg" alt="left slider Icon" className="h-6 w-6 hover:h-8 hover:w-8 transition-all" />
         </button>
         <button
             onClick={nextSlide}
-            className='absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 z-10'
+            className='absolute top-1/2 right-0 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 z-10 rounded-full'
         >
-            Next
+           <img src="/assets/icons/rightIcon.svg" alt="right slider Icon" className="h-6 w-6 hover:h-8 hover:w-8 transition-all" />
         </button>
         <div className='z-[12] absolute left-0 bottom-8 flex justify-end w-full ml-auto px-8'>
             {images.map((image, index) => {
