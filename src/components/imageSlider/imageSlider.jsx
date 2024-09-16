@@ -37,7 +37,7 @@ const ImageSlider = () => {
         const interval = setInterval(() => {
             setCurrent(current === length - 1 ? 0 : current + 1)
             setBgImage(bgImage === length - 1 ? 0 : bgImage + 1)
-        }, 20000)
+        }, 5000)
         return () => clearInterval(interval)
     }, [current])
 
@@ -47,7 +47,7 @@ const ImageSlider = () => {
 
 
   return (
-    <div className='h-[70vh] w-full relative mt-6'>
+    <div className='h-[70vh] w-full relative mt-6 overflow-hidden'>
         {images.map((image, index) => {
             return (
             <div
