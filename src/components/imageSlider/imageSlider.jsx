@@ -61,7 +61,7 @@ const ImageSlider = () => {
 
 
   return (
-    <div className='h-[70vh] w-full relative mt-6 '>
+    <div className='h-[calc(100vh-4rem)] w-full relative mt-6 '>
         {images.map((item, index) => {
             return (
             <div
@@ -80,7 +80,7 @@ const ImageSlider = () => {
                 className='h-full w-full object-cover'
                 />
 
-                <div className={`absolute bottom-12 pb-8 left-0 w-full max-w-[600px] h-fit flex flex-col ml-[3rem]`}>
+                <div className={`absolute top-[50%] pb-8 left-0 w-full max-w-[600px] h-fit flex flex-col ml-[4rem] gap-y-5`}>
                     <h3 data={index} className={`sliderTextHeader text-[2.5rem] leading-[2.4rem] font-bold text-white mb-4 drop-shadow-lg opacity-0 ${bgImage===index?'animate-topCenter animate-delay-[2.1s]':' opacity-0 -translate-y-[100px]'} `}>{item.headerText}</h3>
                     <p className={`sliderTextParagraphy text-slate-300  ${bgImage===index?'animate-bottomCenter opacity-0 animate-delay-[2.4s]':' opacity-0'}`}>{item.paragraphText}</p>
                     <a href="" className={`sliderTextButton text-purple-600 px-6 py-3 bg-purple-300 mt-5 w-fit opacity-0 ${bgImage===index?'animate-leftCenter animate-delay-[2.9s]':' opacity-0'}`}>
